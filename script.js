@@ -91,7 +91,12 @@ function drawTable() {
     }
     buildTable(info);
     document.querySelector('#instrumentform').reset();
+}
 
+function addInstrumentHeader() {
+    const tableHeader = document.createElement('th')
+    tableHeader.appendChild(document.createTextNode('Flute'));
+    table.appendChild(tableHeader);
 }
 
 submitButton.addEventListener('click', drawTable); 
