@@ -79,4 +79,9 @@ function drawTable() {
 
 }
 
-submitButton.addEventListener('click', drawTable);
+submitButton.addEventListener('click', drawTable); 
+document.addEventListener('keypress', event => {
+    if (event.key === 'Enter') {
+        drawTable();
+    }
+})
