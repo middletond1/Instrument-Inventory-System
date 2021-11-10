@@ -6,11 +6,6 @@ const lockerInput = document.querySelector('#locker');
 const dateInput = document.querySelector('#date');
 const table = document.querySelector('#instrumenttable');
 
-// function getDate() {
-//     const date = dateInput.value;
-//     return date;
-// }
-
 function parseDate(date) {
     const day = date.substr(8, 2);
     return day;
@@ -72,4 +67,5 @@ function drawTable() {
         date: `${parseMonth(dateInput.value)} ${parseDate(dateInput.value)}, ${parseYear(dateInput.value)}`
     }
     buildTable(info);
+    document.querySelector('#instrumentform').reset();
 }
