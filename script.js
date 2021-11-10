@@ -59,6 +59,13 @@ function buildTable(info) {
 }
 
 function drawTable() {
+    if  (
+        !dateInput.value ||
+        !instrumentInput.value ||
+        !tagNumberInput.value
+    ) { alert('Please fill in the Instrument, Tag Number, and Date inputs');
+        return;
+    } 
     const info = {
         instrument: instrumentInput.value,
         brand: brandInput.value,
@@ -69,6 +76,7 @@ function drawTable() {
     }
     buildTable(info);
     document.querySelector('#instrumentform').reset();
+
 }
 
 submitButton.addEventListener('click', drawTable);
