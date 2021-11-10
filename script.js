@@ -4,6 +4,7 @@ const tagNumberInput = document.querySelector('#tagnumber');
 const serialNumberInput = document.querySelector('#serialnumber');
 const lockerInput = document.querySelector('#locker');
 const dateInput = document.querySelector('#date');
+const table = document.querySelector('#instrumenttable');
 
 function getInstrument() {
     const instrument = instrumentInput.value;
@@ -62,4 +63,26 @@ function parseMonth(date) {
 function parseYear(date) {
     const year = date.substr(0, 4);
     return year;
+}
+
+function createTableRow() {
+    const row = document.createElement('tr');
+    return row;
+}
+
+function createTableData(item) {
+    const data = document.createElement('td');
+    data.appendChild(document.createTextNode(item));
+    return data;
+}
+
+function buildTable(info) {
+    const row = createTableRow();
+    row.appendChild(createTableData(info));
+    row.appendChild(createTableData(info));
+    row.appendChild(createTableData(info));
+    row.appendChild(createTableData(info));
+    row.appendChild(createTableData(info));
+    row.appendChild(createTableData(info));
+
 }
