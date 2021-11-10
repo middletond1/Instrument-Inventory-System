@@ -5,6 +5,7 @@ const serialNumberInput = document.querySelector('#serialnumber');
 const lockerInput = document.querySelector('#locker');
 const dateInput = document.querySelector('#date');
 const table = document.querySelector('#instrumenttable');
+const submitButton = document.querySelector('#submitbutton');
 
 function parseDate(date) {
     const day = date.substr(8, 2);
@@ -69,3 +70,5 @@ function drawTable() {
     buildTable(info);
     document.querySelector('#instrumentform').reset();
 }
+
+submitButton.addEventListener('click', drawTable);
