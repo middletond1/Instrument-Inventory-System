@@ -14,7 +14,7 @@ function parseDate(date) {
 
 function parseMonth(date) {
     const month = parseInt(date.substr(5, 2)) - 1;
-    const caldendarMonth = [
+    const calendarMonth = [
         'January',
         'February',
         'March',
@@ -28,7 +28,7 @@ function parseMonth(date) {
         'November',
         'December'
     ];
-    return caldendarMonth[month];
+    return calendarMonth[month];
 }
 
 function parseYear(date) {
@@ -47,14 +47,24 @@ function createTableData(item) {
     return data;
 }
 
+function createDeleteButton() {
+    const deleteButton = document.createElement('button');
+    deleteButton.classList.add('delete');
+    deleteButton.setAttribute('type', 'button')
+    deleteButton.appendChild(document.createTextNode('Delete'));
+    return deleteButton;
+}
+
 function buildTable(info) {
     const row = createTableRow();
+    const deleteButton = (createDeleteButton());
     row.appendChild(createTableData(info.instrument));
     row.appendChild(createTableData(info.brand));
     row.appendChild(createTableData(info.tagNumber));
     row.appendChild(createTableData(info.serialNumber));
     row.appendChild(createTableData(info.locker));
     row.appendChild(createTableData(info.date));
+    row.appendChild(deleteButton);
     table.appendChild(row);
 }
 
