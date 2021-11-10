@@ -6,35 +6,10 @@ const lockerInput = document.querySelector('#locker');
 const dateInput = document.querySelector('#date');
 const table = document.querySelector('#instrumenttable');
 
-function getInstrument() {
-    const instrument = instrumentInput.value;
-    return instrument;
-}
-
-function getBrand() {
-    const brand = brandInput.value;
-    return brand;
-}
-
-function getTagNumber() {
-    const tagNumber = tagNumberInput.value;
-    return tagNumber;
-}
-
-function getSerialNumber() {
-    const serialNumber = serialNumberInput.value;
-    return serialNumber;
-}
-
-function getLocker() {
-    const locker = lockerInput.value;
-    return locker;
-}
-
-function getDate() {
-    const date = dateInput.value;
-    return date;
-}
+// function getDate() {
+//     const date = dateInput.value;
+//     return date;
+// }
 
 function parseDate(date) {
     const day = date.substr(8, 2);
@@ -78,11 +53,23 @@ function createTableData(item) {
 
 function buildTable(info) {
     const row = createTableRow();
-    row.appendChild(createTableData(info));
-    row.appendChild(createTableData(info));
-    row.appendChild(createTableData(info));
-    row.appendChild(createTableData(info));
-    row.appendChild(createTableData(info));
-    row.appendChild(createTableData(info));
+    row.appendChild(createTableData(info.instrument));
+    row.appendChild(createTableData(info.brand));
+    row.appendChild(createTableData(info.tagNumber));
+    row.appendChild(createTableData(info.serialNumber));
+    row.appendChild(createTableData(info.locker));
+    row.appendChild(createTableData(info.date));
+    table.appendChild(row);
+}
 
+function drawTable() {
+    const info = {
+        instrument: instrumentInput.value,
+        brand: brandInput.value,
+        tagNumber: tagNumberInput.value,
+        serialNumber: serialNumberInput.value,
+        locker: lockerInput.value,
+        date: `${parseMonth(dateInput.value)} ${parseDate(dateInput.value)}, ${parseYear(dateInput.value)}`
+    }
+    buildTable(info);
 }
