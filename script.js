@@ -63,7 +63,7 @@ function drawTable() {
         !dateInput.value ||
         !instrumentInput.value ||
         !tagNumberInput.value
-    ) { alert('Please fill in the Instrument, Tag Number, and Date inputs');
+    ) { alert('Please fill in the Instrument, Tag Number, and Date fields');
         return;
     } 
     const info = {
